@@ -296,6 +296,8 @@ async function runSendingLoop(
         logMsg(`✅ Email successfully sent to ${hr.email}`);
       } catch (err: any) { // if email not sent due to invalid credentials and all.
         state.failedEmails++;
+
+        console.log("details :", config.email, "  ", config.password)
         logMsg(`❌ Failed sending email to ${hr.email}. Error: ${err.message || err}`);
       }
 
