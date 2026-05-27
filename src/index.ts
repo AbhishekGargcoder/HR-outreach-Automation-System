@@ -234,12 +234,14 @@ async function runSendingLoop(
 ) {
   // Set up nodemailer transporter
   const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: config.email,
-      pass: config.password,
-    },
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,          // true for 465
+    auth: { user: config.email, pass: config.password },
+    // Force IPv4 – Node.js option
+    family: 4,             // <-- add this line
   });
+
 
   try {
     for (let i = 0; i < hrList.length; i++) {
