@@ -3,12 +3,9 @@
 Automate Email Task is a **full‑stack MERN (MongoDB, Express, React, Node.js) application** that streamlines the process of sending personalized emails based on user‑defined schedules and templates.  It demonstrates clean architecture, modern UI/UX patterns, and best‑practice DevOps tooling.
 ---
 ## ✨ Features
-- **Dynamic email templates** with Handlebars syntax for personalization.
-- **Scheduled sending** using a robust cron‑based job runner.
 - **Responsive React UI** employing a dark‑mode ready design and micro‑interactions.
 - **RESTful API** with validation powered by Joi.
-- **Dockerised development** environment for instant onboarding.
-- **Comprehensive test suite** (Jest + React Testing Library) with 90%+ coverage.
+- **Nodemailer** for creating SMTP server and  sending emails through users credentials
 ---
 ## 🛠️ Tech Stack
 | Layer | Technology |
