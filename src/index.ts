@@ -232,20 +232,23 @@ async function runSendingLoop(
     csvPath?: string;
   }
 ) {
-  // Set up nodemailer transporter
-  const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: false,
-    auth: {
-      user: config.email,
-      pass: config.password,
-    },
-    family: 4,   // ✅ Force IPv4
-  });
 
 
   try {
+
+    // Set up nodemailer transporter
+    const transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
+      auth: {
+        user: config.email,
+        pass: config.password,
+      },
+      family: 4,   // ✅ Force IPv4
+    });
+
+
     for (let i = 0; i < hrList.length; i++) {
       if (stopRequested) {
         logMsg("🛑 Sending loop paused/stopped by user action.");
@@ -295,7 +298,15 @@ async function runSendingLoop(
       }
 
       try {
-        await transporter.sendMail(mailOptions);
+        await new Promise((resolve, reject) => {
+          transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+              reject(error);
+            } else {
+              resolve(info);
+            }
+          });
+        });
         state.sentEmails++;
         logMsg(`✅ Email successfully sent to ${hr.email}`);
       } catch (err: any) { // if email not sent due to invalid credentials and all.
