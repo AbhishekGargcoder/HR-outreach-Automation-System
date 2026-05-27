@@ -14,11 +14,8 @@ Automate Email Task is a **full‑stack MERN (MongoDB, Express, React, Node.js) 
 | Layer | Technology |
 |-------|------------|
 | Front‑end | React 18, Vite, TailwindCSS, Axios |
-| Back‑end | Node.js 20, Express, JWT, Joi |
-| Database | MongoDB (Mongoose ORM) |
-| Scheduling | node‑cron |
-| Testing | Jest, Supertest, React Testing Library |
-| Containerisation | Docker, Docker‑Compose |
+| Back‑end | Node.js 20, Express, Nodemailer, Resend , DNS |
+| Testing | Postman |
 ---
 ## 📦 Installation
 ```bash
