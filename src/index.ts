@@ -106,6 +106,8 @@ app.post(
     { name: "resume", maxCount: 1 },
   ]),
   async (req, res) => {
+    return res.status(500).json({ success: false, message: "Mail server connection failed" });
+
 
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
