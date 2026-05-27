@@ -235,11 +235,13 @@ async function runSendingLoop(
   // Set up nodemailer transporter
   const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
-    port: 465,
-    secure: true,          // true for 465
-    auth: { user: config.email, pass: config.password },
-    // Force IPv4 – Node.js option
-    family: 4,             // <-- add this line
+    port: 587,
+    secure: false,
+    auth: {
+      user: config.email,
+      pass: config.password,
+    },
+    family: 4,   // ✅ Force IPv4
   });
 
 
