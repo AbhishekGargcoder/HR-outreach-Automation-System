@@ -125,8 +125,10 @@ app.post(
     transporter.verify((error) => {
       if (error) {
         console.error("❌ Mail server connection failed:", error);
+        return res.status(500).json({ success: false, message: "Mail server connection failed" });
       } else {
         console.log("✅ Mail server ready!");
+        res.json({ success: true, message: "Mail server connection successful" });
       }
     });
     // If files are in req.files typecast it correctly
