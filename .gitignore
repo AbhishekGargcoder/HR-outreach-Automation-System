@@ -1,0 +1,17 @@
+# Ignore env files
+.env
+.env.local
+
+# Ignore node_modules
+node_modules/
+
+# Ignore build folders
+dist/
+build/
+
+
+# Ignore all log files
+*.log
+
+# Ignore APK files
+*.apk
